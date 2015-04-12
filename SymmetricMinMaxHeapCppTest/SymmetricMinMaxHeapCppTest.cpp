@@ -3,9 +3,17 @@
 #include <tchar.h>
 
 #ifdef _DEBUG
-	#pragma comment(lib, "../Debug/SymmetricMinMaxHeapCppLib.lib")
+	#ifdef _M_X64
+		#pragma comment(lib, "../X64/Debug/SymmetricMinMaxHeapCppLib.lib")
+	#else
+		#pragma comment(lib, "../Debug/SymmetricMinMaxHeapCppLib.lib")
+	#endif
 #else
-	#pragma comment(lib, "../Release/SymmetricMinMaxHeapCppLib.lib")
+	#ifdef _M_X64
+		#pragma comment(lib, "../X64/Release/SymmetricMinMaxHeapCppLib.lib")
+	#else
+		#pragma comment(lib, "../Release/SymmetricMinMaxHeapCppLib.lib")
+	#endif
 #endif
 
 void ViewArray(SymmetricMinMaxHeap* heap)
